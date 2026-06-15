@@ -1,9 +1,31 @@
 @import "tailwindcss";
+@font-face {
+  font-family: "jetbrains";
+  src: url("src/assets/fonts/jetbrains-mono/jetbrains-mono-variable.ttf")
+    format("truetype");
+}
+body {
+  font-family: "jetbrains", monospace;
+}
 
-/* ==========================================
-   STATIC DESIGN TOKENS
-========================================== */
 @theme {
+  --color-background: var(--color-neutral-900);
+  --color-surface: var(--color-neutral-700);
+
+  --color-text: var(--color-neutral-50);
+  --color-text-secondary: var(--color-neutral-200);
+
+  --color-border: var(--color-neutral-400);
+
+  --color-primary: var(--color-lime-500);
+  --color-primary-hover: #d7ff4d;
+  --color-primary-text: var(--color-neutral-900);
+
+  --color-success: var(--color-green-500);
+  --color-error: var(--color-red-500);
+}
+
+:root {
   /* Neutral */
   --color-neutral-900: #0a0a0a;
   --color-neutral-700: #171719;
@@ -60,31 +82,23 @@
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 8%);
   --shadow-md: 0 4px 12px rgb(0 0 0 / 12%);
   --shadow-lg: 0 12px 24px rgb(0 0 0 / 16%);
-}
 
-/* ==========================================
-   DARK THEME (DEFAULT)
-========================================== */
-:root {
   --color-background: var(--color-neutral-900);
-  --color-surface: var(--color-neutral-700);
+  --color-surface: #f8f8f8;
 
   --color-text: var(--color-neutral-50);
-  --color-text-secondary: var(--color-neutral-200);
+  --color-text-secondary: var(--color-neutral-400);
 
-  --color-border: var(--color-neutral-400);
+  --color-border: #e5e5e5;
 
   --color-primary: var(--color-lime-500);
-  --color-primary-hover: #d7ff4d;
+  --color-primary-hover: var(--color-lime-800);
   --color-primary-text: var(--color-neutral-900);
 
   --color-success: var(--color-green-500);
   --color-error: var(--color-red-500);
 }
 
-/* ==========================================
-   LIGHT THEME (OVERRIDE)
-========================================== */
 [data-theme="light"] {
   --color-background: var(--color-neutral-50);
   --color-surface: #f8f8f8;
@@ -158,6 +172,6 @@
 
   /* Text Preset 6 - JetBrains Mono, Regular */
   .text-preset-6 {
-    @apply font-mono font-normal text-[10px] leading-[100%] tracking-normala;
+    @apply font-mono font-normal text-[10px] leading-[100%] tracking-normal;
   }
 }
