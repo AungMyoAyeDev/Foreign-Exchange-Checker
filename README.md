@@ -84,5 +84,3 @@ const saveFavorite = (pair) => {
 ## Acknowledgments
 
 Special thanks to the Frontend Mentor team for providing the high-quality Figma designs and the JetBrains Mono font assets that make this project a great portfolio piece.
-
-Would you like me to help you write the code for the **Frankfurter API service** to start fetching those live exchange rates?
