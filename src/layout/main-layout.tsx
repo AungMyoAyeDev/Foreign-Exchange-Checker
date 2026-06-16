@@ -1,13 +1,17 @@
 import { Outlet } from "react-router-dom";
 import ThemeToggle from "../components/theme-toggle";
+import Navbar from "../components/navbar/navbar";
+import Footer from "../components/footer.tsx/footer";
 
 const MainLayout = () => {
   return (
-    <div className="max-w-7xl mx-auto h-screen bg-background">
-      <h1 className="  text-preset-1 text-text ">hellow</h1>
-      <div className="w-20 h-12 bg-neutral-900 rounded-4"></div>
-      <ThemeToggle />
-      <Outlet />
+    <div className=" bg-background h-screen">
+      <Navbar />
+      <main className="max-w-7xl mx-auto p-8 min-h-screen">
+        <ThemeToggle />
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 };
