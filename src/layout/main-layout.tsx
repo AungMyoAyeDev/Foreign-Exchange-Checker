@@ -8,11 +8,11 @@ import LiveMarket from "@/components/live-market/live-market";
 const MainLayout = () => {
   return (
     <div className=" bg-background h-screen">
-      <header>
+      <header className="fixed top-0 w-full">
         <Navbar />
         <LiveMarket />
       </header>
-      <main className="max-w-6xl mx-auto px-8 py-12 min-h-screen">
+      <main className="max-w-6xl mx-auto px-8 py-12 min-h-screen mt-14">
         <Home />
         <ThemeToggle />
         <Outlet />

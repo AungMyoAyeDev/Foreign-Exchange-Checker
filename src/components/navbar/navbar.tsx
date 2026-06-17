@@ -3,7 +3,7 @@ import logo from "@/assets/images/logo.svg";
 
 const Navbar = () => {
   return (
-    <nav className=" w-full px-6 py-5 flex items-center justify-between">
+    <nav className=" w-full px-6 py-5 flex items-center justify-between bg-background">
       <Link to={"/"}>
         <img src={logo} alt="FX checker logo " />
       </Link>
