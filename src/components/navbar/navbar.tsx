@@ -1,21 +1,20 @@
-import { Link } from "react-router-dom";
-import logo from "@/assets/images/logo.svg";
+import { APP_CONFIG_URL } from "@/app/config";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const { pathname } = useLocation();
+  const bottomBorder = "border-b-2 border-primary";
+  console.log(pathname);
   return (
-    <nav className=" w-full px-6 py-5 flex items-center justify-between bg-background">
-      <Link to={"/"}>
-        <img src={logo} alt="FX checker logo " />
-      </Link>
-      <div className="uppercase space-x-2 text-text-secondary text-preset-4">
-        <span>55</span>
-        <span>CURRENCIES</span>
-        <span>·</span>
-        <span>EOD</span>
-        <span>·</span>
-        <span>ECB</span>
-        <span>DATA</span>
-      </div>
+    <nav className="flex items-center gap-4 text-preset-3 text-text-primary mt-8">
+      {APP_CONFIG_URL.map((item) => (
+        <Link
+          to={item.path}
+          className={`uppercase  px-4 py-3 rounded-4  hover:text-primary ${pathname === item.path && bottomBorder} `}
+        >
+          {item.name}
+        </Link>
+      ))}
     </nav>
   );
 };

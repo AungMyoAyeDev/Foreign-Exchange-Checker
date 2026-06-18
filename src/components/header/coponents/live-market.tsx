@@ -1,4 +1,4 @@
-import Button from "../ui/Button";
+import Button from "../../ui/Button";
 const marketItems = [
   { pair: "USD/JPY", price: "157.91", change: "+0.04%", up: true },
   { pair: "EUR/USD", price: "1.0842", change: "-0.22%", up: false },
@@ -9,14 +9,14 @@ const marketItems = [
 const LiveMarket = () => {
   const loopItems = [...marketItems, ...marketItems];
   return (
-    <section className="flex ">
-      <Button className="rounded-0! px-4 py-3 gap-2 ">
+    <section className="flex h-10">
+      <Button variants="primary" className="rounded-0! px-4 py-3 gap-2 ">
         <div className="w-1.5 h-1.5 rounded-full bg-background animate-pulse" />
         <span>live markets</span>
       </Button>
 
-      <div className="flex-1 overflow-hidden bg-surface">
-        <div className="marquee flex w-max">
+      <div className="flex-1 flex items-center h-full  overflow-hidden bg-surface">
+        <div className="marquee flex items-center w-max">
           {loopItems.map((item, index) => (
             <div
               key={`${item.pair}-${index}`}
