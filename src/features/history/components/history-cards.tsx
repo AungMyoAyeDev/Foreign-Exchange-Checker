@@ -21,7 +21,7 @@ const HistoryCards = () => {
           Change
         </h1>
         <p
-          className={`text-preset-2-bold  ${isUp ? "text-text-primary" : "text-danger"}`}
+          className={`text-preset-2-bold  ${isUp ? "text-green-400" : "text-danger"}`}
         >
           {isUp ? "-" : "+"} 0.322
         </p>
@@ -31,7 +31,7 @@ const HistoryCards = () => {
           % Change
         </h1>
         <p
-          className={`text-preset-2-bold  ${isUp ? "text-text-primary" : "text-danger"}`}
+          className={`text-preset-2-bold  ${isUp ? "text-green-400" : "text-danger"}`}
         >
           {isUp ? "▲" : "▼"} 3.22 %
         </p>
