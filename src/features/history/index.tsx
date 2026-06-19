@@ -1,5 +1,11 @@
+import HistoryCards from "./components/history-cards";
+
 const History = () => {
-  return <div>History</div>;
+  return (
+    <section>
+      <HistoryCards />
+    </section>
+  );
 };
 
 export default History;

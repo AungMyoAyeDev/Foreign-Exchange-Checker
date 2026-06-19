@@ -6,7 +6,7 @@ const Navbar = () => {
   const bottomBorder = "border-b-2 border-primary";
 
   return (
-    <nav className="flex items-center gap-4 text-preset-3 text-text-primary mt-8">
+    <nav className="flex items-center gap-4 text-preset-3 text-text-primary mt-8 border-b border-border">
       {APP_CONFIG_URL.map((item) => (
         <Link
           to={item.path}

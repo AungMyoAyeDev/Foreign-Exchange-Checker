@@ -6,7 +6,7 @@ import Navbar from "@/components/navbar/navbar";
 
 const MainLayout = () => {
   return (
-    <div className=" bg-background h-screen">
+    <div className=" bg-background min-h-screen">
       <Header />
       <main className="max-w-6xl mx-auto px-8 py-12 mt-26 ">
         <Home />
