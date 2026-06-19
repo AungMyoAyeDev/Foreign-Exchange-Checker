@@ -1,3 +1,4 @@
+import { cn } from "@/lib/cn";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
   variants?: "primary" | "secondary";
@@ -21,15 +22,15 @@ const Button = ({
       type={type}
       disabled={isDisabled}
       aria-busy={isLoading}
-      className={` } text-preset-5-medium border-2  uppercase flex items-center justify-center px-3 py-2 rounded-8 disabled:opacity-50 disabled:cursor-not-allowed 
-         ${
-           variants === "primary"
-             ? "bg-primary text-background border-primary"
-             : variants === "secondary"
-               ? " border-primary text-neutral-50"
-               : "bg-neutral-500  border-neutral-400"
-         }
-        ${className}`}
+      className={cn(
+        "text-preset-5-medium border-2  uppercase flex items-center justify-center px-3 py-2 rounded-8 disabled:opacity-50 disabled:cursor-not-allowed",
+        variants === "primary"
+          ? "bg-primary text-background border-primary"
+          : variants === "secondary"
+            ? " border-primary text-neutral-50"
+            : "bg-neutral-500  border-neutral-400",
+        className,
+      )}
       {...rest}
     >
       {isLoading && (

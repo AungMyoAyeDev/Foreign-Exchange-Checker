@@ -1,7 +1,7 @@
 import Button from "@/components/ui/Button";
-import chevron from "@/assets/images/icon-chevron-down.svg";
 import exchangeIcon from "@/assets/images/icon-exchange.svg";
 import starIcon from "@/assets/images/icon-star-filled.svg";
+import ExchangeCard from "./components/exchange-card";
 const Home = () => {
   return (
     <section>
@@ -10,59 +10,19 @@ const Home = () => {
       </h1>
       <div className="mt-4 px-5 bg-surface rounded-20 ">
         {/* send */}
-        <div className="flex items-center gap-6 py-5">
-          <div className="p-5 rounded-16 bg-card flex-1">
-            <h2 className="text-text-muted text-preset-4 mb-5 uppercase">
-              send
-            </h2>
-            <div className="flex items-center justify-between gap-4 ">
-              <h3 className="text-preset-1 text-text-primary">1000</h3>
-              <Button className="p-3 rounded-8 gap-2">
-                <img
-                  src="src/assets/images/flags/us.webp"
-                  alt="Select box drop down icon"
-                  className="w-5 h-5 rounded-full"
-                />
-                <p className="text-preset-4 text-text-primary">USD</p>
-                <img
-                  src={chevron}
-                  alt="Select box drop down icon"
-                  className="w-4 h-4"
-                />
-              </Button>
-            </div>
-          </div>
+        <div className="flex flex-col md:flex-row items-center gap-6 py-5">
+          <ExchangeCard type="send" value={1000} currency="USD" />
 
           {/* swap button  */}
           <Button className="w-12 h-12">
             <img src={exchangeIcon} alt="currency exchange button icon" />
           </Button>
           {/* receive  */}
-          <div className="p-5 rounded-16 bg-card flex-1">
-            <h2 className="text-text-muted text-preset-4 mb-5 uppercase">
-              receive
-            </h2>
-            <div className="flex items-center justify-between gap-4 ">
-              <h3 className="text-preset-1 text-text-primary">1000</h3>
-              <Button className="p-3 rounded-8 gap-2">
-                <img
-                  src="src/assets/images/flags/us.webp"
-                  alt="Select box drop down icon"
-                  className="w-5 h-5 rounded-full"
-                />
-                <p className="text-preset-4 text-text-primary">USD</p>
-                <img
-                  src={chevron}
-                  alt="Select box drop down icon"
-                  className="w-4 h-4"
-                />
-              </Button>
-            </div>
-          </div>
+          <ExchangeCard type="receive" value={1149.1} currency="Eur" />
         </div>
 
         {/* cta buttons */}
-        <div className="flex items-center gap-4 justify-between py-4">
+        <div className="flex flex-col md:flex-row items-center gap-4 justify-between py-4">
           <p className="text-preset-5 text-text-secondary">
             1 USD = 0.8530 EUR
           </p>
