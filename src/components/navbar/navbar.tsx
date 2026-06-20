@@ -9,6 +9,7 @@ const Navbar = () => {
     <nav className="flex items-center gap-4 text-preset-3 text-text-primary mt-8 border-b border-border">
       {APP_CONFIG_URL.map((item) => (
         <Link
+          key={item.name}
           to={item.path}
           className={`uppercase  px-4 py-3  hover:text-primary ${pathname === item.path && bottomBorder} `}
         >
