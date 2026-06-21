@@ -17,9 +17,17 @@ const LiveMarket = () => {
 
   const rates = data ?? [];
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading)
+    return (
+      <p className="bg-surface text-text-muted h-10 px-4 pt-1">Loading...</p>
+    );
   if (isError) throw new Error(error?.message ?? "Failed to fetch rates");
-  if (rates.length === 0) return <p>No rates available</p>;
+  if (rates.length === 0)
+    return (
+      <p className="bg-surface text-text-muted h-10 px-4 pt-1">
+        No rates available
+      </p>
+    );
 
   const loopMarquee = [...rates, ...rates];
 

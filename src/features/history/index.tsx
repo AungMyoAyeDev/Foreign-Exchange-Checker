@@ -1,11 +1,11 @@
-import AreaChartExample from "@/components/area-chart";
 import HistoryCards from "./components/history-cards";
+import HistoryChart from "./components/history-chart";
 
 const History = () => {
   return (
     <section>
       <HistoryCards />
-      <AreaChartExample />
+      <HistoryChart />
     </section>
   );
 };
