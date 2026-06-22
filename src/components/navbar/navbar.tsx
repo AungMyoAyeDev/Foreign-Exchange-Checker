@@ -11,7 +11,7 @@ const Navbar = () => {
         <Link
           key={item.name}
           to={item.path}
-          className={`uppercase  px-4 py-3  hover:text-primary ${pathname === item.path && bottomBorder} `}
+          className={`uppercase px-4 py-3 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary rounded-t-4 ${pathname === item.path && bottomBorder} `}
         >
           {item.name}
         </Link>

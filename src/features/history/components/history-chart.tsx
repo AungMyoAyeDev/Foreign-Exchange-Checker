@@ -1,54 +1,40 @@
 import HistoryAreaChart from "@/components/area-chart";
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Page ss",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Page Gg",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
-const HistoryChart = () => {
+import Button from "@/components/ui/Button";
+import type { HistoryPointType } from "@/types";
+
+const ranges = ["1D", "7D", "30D", "1Y", "5Y"] as const;
+
+const HistoryChart = ({
+  data,
+  range,
+  onRangeChange,
+  isLoading = false,
+}: {
+  data: HistoryPointType[];
+  range: (typeof ranges)[number];
+  onRangeChange: (range: (typeof ranges)[number]) => void;
+  isLoading?: boolean;
+}) => {
   return (
     <section>
-      <div></div>
+      <div className="flex flex-wrap justify-end gap-2 mb-3">
+        {ranges.map((item) => (
+          <Button
+            key={item}
+            variants={range === item ? "primary" : "secondary"}
+            onClick={() => onRangeChange(item)}
+            className="hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+          >
+            {item}
+          </Button>
+        ))}
+      </div>
       <div className="p-4 radius-4 bg-surface">
-        <HistoryAreaChart data={data} />
+        {isLoading ? (
+          <p className="text-text-muted text-preset-4">Loading chart...</p>
+        ) : (
+          <HistoryAreaChart data={data} />
+        )}
       </div>
     </section>
   );

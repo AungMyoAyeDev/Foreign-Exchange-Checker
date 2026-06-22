@@ -4,7 +4,7 @@ import logo from "@/assets/images/logo.svg";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 w-full">
+    <header className="fixed top-0 w-full z-10">
       <div className=" w-full px-6 py-5 flex items-center justify-between bg-background">
         <Link to={"/"}>
           <img src={logo} alt="FX checker logo " />

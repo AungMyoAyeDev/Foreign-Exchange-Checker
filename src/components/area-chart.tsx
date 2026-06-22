@@ -30,8 +30,8 @@ const HistoryAreaChart = ({ data, isAnimationActive = true }: Props) => {
       <Tooltip />
       <Area
         type="monotone"
-        dataKey="uv"
-        stroke="#8884d8"
+        dataKey="rate"
+        stroke="#cef739"
         fillOpacity={1}
         fill="url(#colorUv)"
         isAnimationActive={isAnimationActive}

@@ -23,7 +23,7 @@ const Button = ({
       disabled={isDisabled}
       aria-busy={isLoading}
       className={cn(
-        "text-preset-5-medium border-2  uppercase flex items-center justify-center px-3 py-2 rounded-8 disabled:opacity-50 disabled:cursor-not-allowed",
+        "text-preset-5-medium border-2 uppercase flex items-center justify-center px-3 py-2 rounded-8 disabled:opacity-50 disabled:cursor-not-allowed hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary transition-colors",
         variants === "primary"
           ? "bg-primary text-background border-primary"
           : variants === "secondary"

@@ -1,19 +1,10 @@
-import { useLatestRate } from "@/hooks/useLatestRate";
+import { useMarketPairs } from "@/hooks/useCurrencyData";
 import Button from "../../ui/Button";
 import { TICKER_PAIRS } from "@/app/constant";
-const TICKER_QUOTES = Array.from(
-  new Set(
-    TICKER_PAIRS.flatMap(({ base, target }) =>
-      [base, target].filter((c) => c !== "USD"),
-    ),
-  ),
-);
+import { priceFormatter } from "@/lib/price-formatter";
 
 const LiveMarket = () => {
-  const { data, error, isError, isLoading } = useLatestRate(
-    "USD",
-    TICKER_QUOTES,
-  );
+  const { data, error, isError, isLoading } = useMarketPairs(TICKER_PAIRS);
 
   const rates = data ?? [];
 
@@ -47,17 +38,18 @@ const LiveMarket = () => {
             >
               <span className="text-text-muted">{item.pair}</span>
               <span className="text-text-primary text-preset-5-medium">
-                {item.rate}
+                {priceFormatter(item.rate)}
               </span>
               <span
                 className={
-                  item.change > 0
+                  item.changePercent >= 0
                     ? "text-success text-nowrap"
                     : "text-danger text-nowrap"
                 }
               >
-                {item.change > 0 ? "▲ " : "▼"} {item.change > 0 && "+"}
-                {Math.abs(item.change).toFixed(2)}
+                {item.changePercent >= 0 ? "▲ " : "▼"}{" "}
+                {item.changePercent >= 0 && "+"}
+                {item.changePercent.toFixed(2)}%
               </span>
             </div>
           ))}
