@@ -7,6 +7,7 @@ interface Props {
 }
 
 const HistoryAreaChart = ({ data, isAnimationActive = true }: Props) => {
+  console.log(data);
   return (
     <AreaChart
       style={{ width: "100%", maxHeight: "50vh", aspectRatio: 1.618 }}
@@ -16,12 +17,8 @@ const HistoryAreaChart = ({ data, isAnimationActive = true }: Props) => {
     >
       <defs>
         <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="5%" stopColor="#000" stopOpacity={0.8} />
-          <stop offset="95%" stopColor="#cef739" stopOpacity={0} />
-        </linearGradient>
-        <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="5%" stopColor="#cef739" stopOpacity={0.8} />
-          <stop offset="95%" stopColor="#cef739" stopOpacity={0} />
+          <stop offset="5%" stopColor="#c9f000" stopOpacity={0.25} />
+          <stop offset="95%" stopColor="#c9f000" stopOpacity={0} />
         </linearGradient>
       </defs>
       {/* <CartesianGrid strokeDasharray="3 3" /> */}
@@ -36,14 +33,6 @@ const HistoryAreaChart = ({ data, isAnimationActive = true }: Props) => {
         fill="url(#colorUv)"
         isAnimationActive={isAnimationActive}
       />
-      {/* <Area
-      type="monotone"
-      dataKey="pv"
-      stroke="#82ca9d"
-      fillOpacity={1}
-      fill="url(#colorPv)"
-      isAnimationActive={isAnimationActive}
-    /> */}
       {/* <RechartsDevtools /> */}
     </AreaChart>
   );

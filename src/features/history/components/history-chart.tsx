@@ -2,7 +2,7 @@ import HistoryAreaChart from "@/components/area-chart";
 import Button from "@/components/ui/Button";
 import type { HistoryPointType } from "@/types";
 
-const ranges = ["1D", "7D", "30D", "1Y", "5Y"] as const;
+const ranges = ["1D", "1W", "1M", "1Y", "5Y"] as const;
 
 const HistoryChart = ({
   data,
@@ -17,13 +17,13 @@ const HistoryChart = ({
 }) => {
   return (
     <section>
-      <div className="flex flex-wrap justify-end gap-2 mb-3">
+      <div className="flex flex-wrap  gap-2 mb-3">
         {ranges.map((item) => (
           <Button
             key={item}
-            variants={range === item ? "primary" : "secondary"}
+            variants={range === item ? "primary" : "ghost"}
             onClick={() => onRangeChange(item)}
-            className="hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+            className="hover:border-primary focus-visible:outline focus-visible:outline-primary text-sm px-4"
           >
             {item}
           </Button>

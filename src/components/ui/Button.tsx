@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
-  variants?: "primary" | "secondary";
+  variants?: "primary" | "secondary" | "ghost";
   children: ReactNode;
   isLoading?: boolean;
 }
@@ -28,7 +28,7 @@ const Button = ({
           ? "bg-primary text-background border-primary"
           : variants === "secondary"
             ? " border-primary text-neutral-50"
-            : "bg-neutral-500  border-neutral-400",
+            : "bg-neutral-500  border-neutral-400 text-text-secondary",
         className,
       )}
       {...rest}

@@ -85,9 +85,9 @@ export const getLatestRate = async (
 export const getPairRate = async (base: string, quote: string) => {
   if (base === quote) return 1;
 
-  const { data } = await api.get<FrankfurterRateResponse | FrankfurterRatesResponse>(
-    `/rate/${base}/${quote}`,
-  );
+  const { data } = await api.get<
+    FrankfurterRateResponse | FrankfurterRatesResponse
+  >(`/rate/${base}/${quote}`);
 
   if (!data) {
     throw new Error("Failed to fetch pair rate.");
@@ -117,16 +117,11 @@ export const getRateHistory = async ({
     params: { base, quotes: quote, from, to, group },
   });
 
+  console.log(data, "api");
+
   if (!data) {
     throw new Error("Failed to fetch rate history.");
   }
 
-  return Object.entries(data.rates ?? {})
-    .map<HistoryPointType>(([date, rates]) => ({
-      name: date.slice(5),
-      date,
-      rate: rates[quote],
-    }))
-    .filter((point) => typeof point.rate === "number")
-    .sort((a, b) => a.date.localeCompare(b.date));
+  return data;
 };

@@ -7,21 +7,21 @@ import HistoryChart from "./components/history-chart";
 
 const rangeConfig = {
   "1D": { days: 1, group: undefined },
-  "7D": { days: 7, group: undefined },
-  "30D": { days: 30, group: undefined },
+  "1W": { days: 7, group: undefined },
+  "1M": { days: 30, group: undefined },
   "1Y": { days: 365, group: "week" },
   "5Y": { days: 365 * 5, group: "month" },
 } as const;
 
 const History = () => {
-  const [range, setRange] = useState<keyof typeof rangeConfig>("30D");
+  const [range, setRange] = useState<keyof typeof rangeConfig>("1M");
   const { baseCurrency, quoteCurrency } = useCurrency();
   const selectedRange = rangeConfig[range];
   const { data = [], isLoading } = useHistoryRates({
-    base: baseCurrency,
-    quote: quoteCurrency,
-    from: dateDaysAgo(selectedRange.days),
-    group: selectedRange.group,
+    base: "USD",
+    quote: "EUR",
+    from: "2026-01-01",
+    group: "month",
   });
 
   return (
