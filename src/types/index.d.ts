@@ -18,7 +18,7 @@ export type MarketRateType = {
 };
 
 export type HistoryPointType = {
-  name: string;
+  pair: string;
   date: string;
   rate: number;
 };

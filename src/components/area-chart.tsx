@@ -16,22 +16,27 @@ const HistoryAreaChart = ({ data, isAnimationActive = true }: Props) => {
       margin={{ top: 10, right: 0, left: 0, bottom: 0 }}
     >
       <defs>
-        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="5%" stopColor="#c9f000" stopOpacity={0.25} />
-          <stop offset="95%" stopColor="#c9f000" stopOpacity={0} />
+        <linearGradient id="colorRate" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="5%" stopColor="#cef739" stopOpacity={0.25} />
+          <stop offset="95%" stopColor="#cef739" stopOpacity={0} />
         </linearGradient>
       </defs>
-      {/* <CartesianGrid strokeDasharray="3 3" /> */}
-      <XAxis dataKey="name" />
+      <XAxis dataKey="date" />
       <YAxis />
       <Tooltip />
       <Area
         type="monotone"
         dataKey="rate"
         stroke="#cef739"
-        fillOpacity={1}
-        fill="url(#colorUv)"
+        strokeWidth={2}
+        fill="url(#colorRate)"
         isAnimationActive={isAnimationActive}
+        dot={false}
+        activeDot={{
+          r: 4,
+          fill: "#c9f000",
+          strokeWidth: 0,
+        }}
       />
       {/* <RechartsDevtools /> */}
     </AreaChart>

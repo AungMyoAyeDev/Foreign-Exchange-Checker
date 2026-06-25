@@ -12,3 +12,12 @@ export const dateDaysAgo = (days: number) => {
   date.setDate(date.getDate() - days);
   return formatApiDate(date);
 };
+
+export const dateFormatter = {
+  getDateTime: (date: string) => {
+    const dateTime = new Date(date);
+    return new Intl.DateTimeFormat("en-GB", {
+      month: "short",
+    }).format(dateTime);
+  },
+};
